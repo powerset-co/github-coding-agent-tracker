@@ -65,7 +65,13 @@ function buildSpec(data: DataPoint[]): vegaLite.TopLevelSpec {
   const dates = data.map((d) => d.date);
   const spanMs = new Date(dates[dates.length - 1]).getTime() - new Date(dates[0]).getTime();
   const spanDays = spanMs / (1000 * 60 * 60 * 24);
-  const dateFormat = spanDays < 60 ? "%b %d" : "%b %Y";
+
+  // For longer spans, limit the number of ticks to avoid repetitive labels
+  // Using tickCount ensures labels are spaced out appropriately
+  const axisConfig =
+    spanDays < 60
+      ? { title: null, format: "%b %d", labelAngle: -45 }
+      : { title: null, format: "%b %Y", labelAngle: -45, tickCount: 8 };
 
   return {
     $schema: "https://vega.github.io/schema/vega-lite/v5.json",
@@ -82,7 +88,7 @@ function buildSpec(data: DataPoint[]): vegaLite.TopLevelSpec {
           x: {
             field: "date",
             type: "temporal",
-            axis: { title: null, format: dateFormat, labelAngle: -45 },
+            axis: axisConfig,
           },
           y: {
             field: "percentage",
