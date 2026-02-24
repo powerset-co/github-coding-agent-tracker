@@ -27,6 +27,8 @@ const CHART_AGENTS: { name: string; keys: string[] }[] = [
   { name: "OpenAI Codex", keys: ["codex"] },
   { name: "OpenCode", keys: ["opencode"] },
   { name: "Amazon Q", keys: ["amazonq"] },
+  { name: "Amp (Sourcegraph)", keys: ["amp"] },
+  { name: "Windsurf", keys: ["windsurf"] },
 ];
 
 // Load all daily CSV files and compute the combined agent percentage per day.

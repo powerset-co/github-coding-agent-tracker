@@ -154,7 +154,7 @@ async function main() {
 
   // Each day requires 24 (hourly windows) + N (agents) search API calls.
   // GitHub's search API rate limit is 30 requests/minute for authenticated users.
-  // With 10 agents, that's 34 queries/day — so we can backfill ~1 day/minute.
+  // With 12 agents, that's 36 queries/day — so we can backfill ~1 day/minute.
   for (const date of dates) {
     const counts = await fetchDay(date);
     writeCSV(date, counts);

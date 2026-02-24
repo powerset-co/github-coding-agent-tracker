@@ -56,4 +56,12 @@ export const AGENTS: Agent[] = [
 
   // GitHub App bot — commit author is amazon-q-developer[bot]
   { name: "Amazon Q", key: "amazonq", query: "author:amazon-q-developer[bot]" },
+
+  // Co-Authored-By trailer: "Co-authored-by: Amp <amp@ampcode.com>"
+  // Amp is the successor to Sourcegraph Cody.
+  { name: "Amp (Sourcegraph)", key: "amp", query: "amp@ampcode.com" },
+
+  // Co-Authored-By trailer: "Co-authored-by: Windsurf <windsurf@codeium.com>"
+  // Windsurf's Cascade agent adds this trailer when committing from the IDE.
+  { name: "Windsurf", key: "windsurf", query: "windsurf@codeium.com" },
 ];
