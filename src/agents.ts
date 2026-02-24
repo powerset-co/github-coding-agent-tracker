@@ -1,6 +1,6 @@
 // Agent definitions for GitHub commit search queries.
 //
-// There are two detection patterns, depending on how each agent makes commits:
+// There are three detection patterns, depending on how each agent makes commits:
 //
 // 1. "author:bot-name[bot]" — The agent operates as a GitHub App and IS the
 //    commit author. These are precise with essentially no false positives.
@@ -8,6 +8,9 @@
 // 2. Bare text search (email/domain) — The agent commits under the human user's
 //    identity but adds a Co-Authored-By trailer to the commit message. Bare text
 //    queries search the commit message body and match these trailers.
+//
+// 3. "author-email:addr" — The agent IS the commit author but isn't a GitHub App,
+//    so we match by the raw git author email instead of by GitHub username.
 
 export interface Agent {
   name: string; // display name, e.g. "Claude Code"
@@ -41,10 +44,12 @@ export const AGENTS: Agent[] = [
 
   // Cursor has two agent modes with different commit signatures:
   //
-  // Editor Agent (in-IDE): adds Co-Authored-By trailer with cursoragent@cursor.com
+  // Editor Agent (in-IDE): adds Co-Authored-By trailer with cursoragent@cursor.com.
+  // Bare text matches the trailer in the commit message.
   { name: "Cursor (Editor)", key: "cursor_editor", query: "cursoragent@cursor.com" },
-  // Background Agent (remote VM): commits as "Cursor Agent <agent@cursor.com>"
-  { name: "Cursor (Background)", key: "cursor_bg", query: "author-email:agent@cursor.com" },
+  // Background Agent (remote VM): commits as "Cursor Agent <cursoragent@cursor.com>".
+  // Uses author-email: to match the git author field (not in the commit message).
+  { name: "Cursor (Background)", key: "cursor_bg", query: "author-email:cursoragent@cursor.com" },
 
   // GitHub App bot — commit author is google-labs-jules[bot]
   { name: "Google Jules", key: "jules", query: "author:google-labs-jules[bot]" },

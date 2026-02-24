@@ -49,7 +49,7 @@ Specific coding agents are detected using the following search queries:
 | OpenAI Codex        | `author:chatgpt-codex-connector[bot]` |
 | OpenCode            | `noreply@opencode.ai`                 |
 | Cursor (Editor)     | `cursoragent@cursor.com`              |
-| Cursor (Background) | `author-email:agent@cursor.com`       |
+| Cursor (Background) | `author-email:cursoragent@cursor.com` |
 | Google Jules        | `author:google-labs-jules[bot]`       |
 | Amazon Q            | `author:amazon-q-developer[bot]`      |
 
