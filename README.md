@@ -13,7 +13,7 @@ The following chart and table are updated automatically by a GitHub Action runni
 | -------------- | -------------------- | ----- |
 | Claude Code    | ████████████████████ | 5.12% |
 | GitHub Copilot | █                    | 0.15% |
-| Google Jules   |                      | 0.03% |
+| Cursor         |                      | 0.08% |
 
 <!-- recent-table-end -->
 
