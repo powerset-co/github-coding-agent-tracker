@@ -9,11 +9,11 @@ The following chart and table are updated automatically by a GitHub Action runni
 
 10-day rolling average, as a % of all public commits on GitHub of the top 3 coding agents (by detected commit count).
 
-| Agent          |                      | %     |
-| -------------- | -------------------- | ----- |
-| Claude Code    | ████████████████████ | 9.45% |
-| Cursor         |                      | 0.21% |
-| GitHub Copilot |                      | 0.02% |
+| Agent          |                      | %      |
+| -------------- | -------------------- | ------ |
+| Claude Code    | ████████████████████ | 10.31% |
+| Cursor         |                      | 0.23%  |
+| GitHub Copilot |                      | 0.02%  |
 
 <!-- recent-table-end -->
 
